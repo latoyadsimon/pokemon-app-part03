@@ -1,2 +1,6 @@
-
+11/15/2026
 npm install cypress --save-dev
+
+Front-End · Unit 4: React Hooks · Lecture 1 of 2
+State: React redraws the page for you.
+The Pokemon page moves from DOM code to useState, and the tests prove nothing broke.
