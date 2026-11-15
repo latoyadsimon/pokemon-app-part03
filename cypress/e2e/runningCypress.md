@@ -1,14 +1,9 @@
 
-## Anatomy of a test
+Front-End · Unit 3: End-to-End Testing · Lecture 2 of 2
 
-| Piece                                         | Means                                           |
-| --------------------------------------------- | ----------------------------------------------- |
-| `beforeEach(() => { … })`                  | runs before**every**test                  |
-| `it('should have a heading', () => { … })` | one test: a sentence about the app              |
-| `cy.visit('/')`                             | open baseUrl + "/"                              |
-| `cy.get('header')`                          | find elements (CSS selector), waiting up to 4 s |
-| `.should('be.visible')`                     | what must be true (retried until it is)         |
+# Test every feature, with tests that can fail.
 
+pokemon.cy.js: searches, edge cases, and what must NOT happen.
 
 
 
@@ -22,8 +17,6 @@
 
 Green in cy:open, green in cy:run: same tests, two ways to watch.
 
-
-
 ## Reading a red test
 
 | Cypress says                                         | Usually means                         |
@@ -36,15 +29,11 @@ Green in cy:open, green in cy:run: same tests, two ways to watch.
 
 The first line of the error tells you which of these it is.
 
-
-
 ## Homework, Part I
 
 1. **Pokémon Theme Team Tests** : "Go back to your Pokémon Theme Team project and add a Cypress test suite that will be capable of rendering the Home page and ensure it exists."
 
 Part II comes with lecture 2. Links are on the class site.
-
-
 
 ## Test what the user sees, not how the code works
 
@@ -57,9 +46,6 @@ Part II comes with lecture 2. Links are on the class site.
 "generateCard was called", "the div has class card"
 
 Then the tests survive a rewrite: unit 4 replaces generateCard, and these tests stay green.
-
-
-
 
 ## Our features → our tests
 
@@ -76,6 +62,19 @@ One test per behaviour, named like a sentence.
 
 
 
+
+## Anatomy of a test
+
+| Piece                                         | Means                                           |
+| --------------------------------------------- | ----------------------------------------------- |
+| `beforeEach(() => { … })`                  | runs before**every**test                  |
+| `it('should have a heading', () => { … })` | one test: a sentence about the app              |
+| `cy.visit('/')`                             | open baseUrl + "/"                              |
+| `cy.get('header')`                          | find elements (CSS selector), waiting up to 4 s |
+| `.should('be.visible')`                     | what must be true (retried until it is)         |
+
+
+
 ## The commands and assertions we use
 
 | Command                 | Does                | Assertion                                    | Checks          |
@@ -87,9 +86,6 @@ One test per behaviour, named like a sentence.
 
 Find with ids we planned (#bulbasaur-card), not with styling classes.
 
-
-
-
 ## Reading a red test
 
 1. **Which test?** The ✗ line names it
@@ -98,6 +94,19 @@ Find with ids we planned (#bulbasaur-card), not with styling classes.
 4. Fix the one that is wrong, run again
 
 A red test is information, not a disaster.
+
+
+
+
+## Break it on purpose
+
+| Delete this line in App.jsx                                    | This test must go red                |
+| -------------------------------------------------------------- | ------------------------------------ |
+| `if (!name) return`                                          | does nothing on an empty search      |
+| `if (document.getElementById(`${data.name}-card`)) return` | does not add the same Pokemon twice  |
+| `alert("Pokemon Does not Exist")`                            | alerts when a Pokemon does not exist |
+
+
 
 
 
